@@ -1,14 +1,10 @@
 .cart  {
     width: 70%;
-    margin: 4em auto 0 auto;
+    margin: 3em auto 0 auto;
 }
 
 .cart h1 {
     margin-bottom: 1em;
-}
-
-
-.welcome-to-cart {
     text-align: center;
 }
 
