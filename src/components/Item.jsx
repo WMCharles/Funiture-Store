@@ -1,9 +1,9 @@
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import Loading from './Loading'
 import "../styles/Item.css"
 
-export default function Item({addToCart}) {
+export default function Item({ addToCart }) {
 
     const { id } = useParams()
     const [product, setProduct] = useState([])
@@ -26,6 +26,13 @@ export default function Item({addToCart}) {
         fetchProduct()
     }, [])
 
+    function handleDelete(product) {
+        fetch(`/products/${product.id}`, {
+            method: "DELETE"
+        })
+            .then((res) => res.json())
+    }
+
     const ShowProduct = () => {
         return (
             <div className='ProductDetail'>
@@ -38,8 +45,6 @@ export default function Item({addToCart}) {
                         <h1>{product.title}</h1>
                         <h2>Category: {product.category.name}</h2>
                         <h2>Kshs. {product.price}</h2>
-                        <a href={`edit/${product.id}`}><h3>Edit Details</h3></a>
-                        {/* <h3 onClick={() => {handleDelete(product); navigate(`/products`)}}>Delete Item</h3> */}
                         <p>{product.description}</p>
                         <div>
                             <button className='bt1' onClick={() => { handleAddToCart(product); }}>Add to Cart</button>
@@ -47,17 +52,13 @@ export default function Item({addToCart}) {
                         </div>
                     </div>
                 </div>
+                <div className='update-delete'>
+                    <button className='button button1'><a href={`edit/${product.id}`}>Edit Product</a></button>
+                    <button className='button button2' onClick={() => {handleDelete(product); navigate(`/products`)}}>Delete Product</button>
+                </div>
             </div>
         )
     }
-
-    // function handleDelete(product) {
-    //     fetch(`/products/${product.id}`, {
-    //         method: "DELETE"
-    //     })
-    //         .then((res) => res.json())
-    //         .then(() => deleteItem(product))
-    // }
 
     return (
         <div>
