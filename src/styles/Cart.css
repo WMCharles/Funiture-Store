@@ -1,6 +1,5 @@
 .cart  {
     width: 70%;
-    /* height: 100vh; */
     margin: 4em auto 0 auto;
 }
 
@@ -10,6 +9,7 @@
 
 .item {
     display: flex;
+    align-items: center;
     margin-bottom: .5em;
 }
 
@@ -17,10 +17,15 @@
     width: 25%;
 }
 
-.description, .total-amount, .quantity {
+.description, .total-amount {
     margin: auto;
     text-align: center;
     padding: 10px;
+}
+
+.cart-image img {
+    width: 160px;
+    height: 120px;
 }
 
 .total-amount p {

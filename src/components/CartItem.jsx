@@ -6,7 +6,7 @@ export default function CartItem({item, removeItem, handleChange}) {
     }
     return (
         <div className='item'>
-            <div className='image'>
+            <div className='cart-image'>
                 <img src={item.image_url} alt="" />
             </div>
             <div className='description'>
@@ -20,7 +20,7 @@ export default function CartItem({item, removeItem, handleChange}) {
                 <button onClick={() => handleChange(item, 1)}>+</button> {item.quantity} <button onClick={() => handleChange(item, -1)}>-</button>
             </div>
             <div className='total-amount'>
-                <h2>$ {item.price * item.quantity}</h2>
+                <h3>$ {item.price * item.quantity}</h3>
                 <br/>
                 <p onClick={() => removeItemFromCart(item)}>Remove</p>
             </div>
