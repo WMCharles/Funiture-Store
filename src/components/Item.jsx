@@ -38,7 +38,7 @@ export default function Item({addToCart}) {
                         <h1>{product.title}</h1>
                         <h2>Category: {product.category.name}</h2>
                         <h2>Kshs. {product.price}</h2>
-                        {/* <a href={`edit/${product.id}`}><h3>Edit Details</h3></a> */}
+                        <a href={`edit/${product.id}`}><h3>Edit Details</h3></a>
                         {/* <h3 onClick={() => {handleDelete(product); navigate(`/products`)}}>Delete Item</h3> */}
                         <p>{product.description}</p>
                         <div>
