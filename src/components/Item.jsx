@@ -1,33 +1,36 @@
-import React, { useEffect } from 'react'
-import "../styles/Item.css"
 import { useParams, useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import Loading from './Loading'
+import "../styles/Item.css"
 
-export default function Item() {
+export default function Item({addToCart}) {
 
     const { id } = useParams()
-    // const navigate = useNavigate()
-    // function handleAddToCart(item) {
-    //     addToCart(item)
-    // }
+    const [product, setProduct] = useState([])
+    const [loading, setLoading] = useState(true)
+    const navigate = useNavigate()
 
-    useEffect(() => {
+    function handleAddToCart(item) {
+        addToCart(item)
+    }
+
+    const fetchProduct = async () => {
         fetch(`/products/${id}`)
-        .then((res) => res.json())
-        .then((items) => console.log(items))
-    },[])
-    
-    // function handleDelete(product) {
-    //     fetch(`/products/${product.id}`, {
-    //         method: "DELETE"
-    //     })
-    //         .then((res) => res.json())
-    //         .then(() => deleteItem(product))
-    // }
-    return (
-        <div className='ProductDetail'>
-            {/* <h1 className='pagetitle'>Product Details</h1>
-            {itemData.filter((item) => item.title === title).map((product, index) =>
-                <div className='Item' key={index}>
+            .then((res) => res.json())
+            .then((item) => {
+                setLoading(false)
+                setProduct(item)
+            })
+    }
+    useEffect(() => {
+        fetchProduct()
+    }, [])
+
+    const ShowProduct = () => {
+        return (
+            <div className='ProductDetail'>
+                <h1 className='pagetitle'>Product Details</h1>
+                <div className='Item' >
                     <div className='productImage'>
                         <img src={product.image_url} alt="" />
                     </div>
@@ -35,8 +38,8 @@ export default function Item() {
                         <h1>{product.title}</h1>
                         <h2>Category: {product.category.name}</h2>
                         <h2>Kshs. {product.price}</h2>
-                        <a href={`edit/${product.id}`}><h3>Edit Details</h3></a>
-                        <h3 onClick={() => {handleDelete(product); navigate(`/products`)}}>Delete Item</h3>
+                        {/* <a href={`edit/${product.id}`}><h3>Edit Details</h3></a> */}
+                        {/* <h3 onClick={() => {handleDelete(product); navigate(`/products`)}}>Delete Item</h3> */}
                         <p>{product.description}</p>
                         <div>
                             <button className='bt1' onClick={() => { handleAddToCart(product); }}>Add to Cart</button>
@@ -44,7 +47,21 @@ export default function Item() {
                         </div>
                     </div>
                 </div>
-            )} */}
+            </div>
+        )
+    }
+
+    // function handleDelete(product) {
+    //     fetch(`/products/${product.id}`, {
+    //         method: "DELETE"
+    //     })
+    //         .then((res) => res.json())
+    //         .then(() => deleteItem(product))
+    // }
+
+    return (
+        <div>
+            {loading ? <Loading /> : <ShowProduct />}
         </div>
     )
 }
