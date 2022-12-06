@@ -1,0 +1,75 @@
+.contact-us {
+    width: 70%;
+    height: (100vh - 80px -6em);
+    margin: 6em auto 0 auto;
+    display: flex;
+}
+
+.contact-message {
+    width: 50%;
+    padding: 2em;
+}
+
+.contact-message h1 {
+    margin-bottom: 1em;
+}
+
+.contact-form {
+    width: 50%;
+}
+
+.input-control {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.2em;
+}
+
+.addpost {
+    margin-top: 2em;
+}
+
+.input-control button {
+    padding: 12px;
+    border: none;
+    font-size: .9em;
+    font-weight: 600;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
+.input-control input {
+    padding: 12px 0;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.input-control input:focus {
+    outline: 0;
+}
+
+.input-control textarea {
+    padding: 12px 0;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.input-control textarea:focus {
+    outline: 0;
+}
+
+@media (max-width: 1024px) {
+    .contact-us {
+        flex-direction: column;
+    }
+    .contact-form {
+        margin-top: 1em;
+        width: 100%;
+    }
+    .contact-message {
+        width: 100%;
+        padding: 0;
+        line-height: 2em;
+    }
+    
+}
