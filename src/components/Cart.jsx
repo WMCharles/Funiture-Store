@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-
-import "./Cart.css"
 import CartItem from './CartItem'
+import "../styles/Cart.css"
 
 export default function Cart({ cart, removeItem, handleChange }) {
   const [price, setPrice] = useState(0)
