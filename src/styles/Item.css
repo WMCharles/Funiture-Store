@@ -1,0 +1,81 @@
+.ProductDetail {
+    width: 70%;
+    margin: 2em auto 0 auto;
+}
+
+.pagetitle {
+    margin-bottom: .8em;
+}
+
+.Item {
+    display: flex;
+}
+
+.Item > div {
+    width: 50%;
+}
+
+.Description {
+    margin: 0 1.4em;
+    line-height: 3em;
+}
+
+/* .Description h2 {
+    margin-bottom: 1em;
+} */
+
+.Description h3 {
+    color: blue;
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+
+.Description p {
+    font-size: 1.2rem;
+}
+
+.Description button {
+    margin-top: 1em;
+    margin-right: 1em;
+    padding: 12px 2em;
+    border: 1px solid black;
+    background-color: white;
+    font-size: .9em;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Description button:hover {
+    background-color: black;
+    color: white;
+}
+
+.productImage img{
+    width: 100%;
+}
+
+/* Review Section */
+
+.reviews {
+    margin-top: 1em;
+}
+
+.reviews h1 {
+    margin-bottom: .5em;
+}
+/* Media Queries */
+
+@media(max-width: 1024px) {
+    .Item {
+        flex-direction: column;
+    }
+    .Item > div {
+        width: 100%;
+    }
+    .Description {
+        margin: 0;
+        margin: 1em 0;
+        line-height: 2.5em;
+    }
+}
