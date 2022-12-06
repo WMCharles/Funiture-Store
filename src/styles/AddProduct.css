@@ -1,0 +1,57 @@
+.Product {
+    width: 70%;
+    margin: 4em auto 0 auto;
+}
+
+.Product h1 {
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+form {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 1.2em;
+}
+
+.input-control {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.2em ;
+}
+
+.input-control button {
+    padding: 12px;
+    border: none;
+    font-size: .9em;
+    font-weight: 600;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
+.input-control input {
+    padding: 12px 0;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.input-control input:focus {
+    outline: 0;
+}
+
+.input-control textarea {
+    padding: 12px 0;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.input-control textarea:focus {
+    outline: 0;
+}
+
+@media (max-width: 1024px) {
+    form {
+        width: 100%;
+    }
+}
