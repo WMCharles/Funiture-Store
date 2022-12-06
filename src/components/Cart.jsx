@@ -19,7 +19,7 @@ export default function Cart({ cart, removeItem, handleChange }) {
     <div>
       {cart.length === 0 && 
         <div className="cart">
-          <p>Your cart is empty</p>
+          <h1 className='welcome-to-cart'>Your cart is empty</h1>
         </div>
       }
       {cart.length > 0 &&

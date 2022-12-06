@@ -7,6 +7,11 @@
     margin-bottom: 1em;
 }
 
+
+.welcome-to-cart {
+    text-align: center;
+}
+
 .item {
     display: flex;
     align-items: center;
