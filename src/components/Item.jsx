@@ -1,4 +1,4 @@
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import Loading from './Loading'
 import "../styles/Item.css"
@@ -24,6 +24,7 @@ export default function Item({ addToCart }) {
     }
     useEffect(() => {
         fetchProduct()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     function handleDelete(product) {
