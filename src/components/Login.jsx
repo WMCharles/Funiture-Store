@@ -1,4 +1,4 @@
-export default function Login() {
+export default function Login({handleClick}) {
     return (
         <div>
             <form id="form">
@@ -11,14 +11,12 @@ export default function Login() {
                 <div class="input-control">
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" />
-                </div>
-                <div class="input-control">
-                    <label for="password">Password</label>
-                    <input type="password2" id="password2" name="password2" />
-                </div>
-                
+                </div>     
                 <div className="input-control">
-                    <p className='p'>Don't have an account ? </p>
+                    <button type="submit">Login</button>
+                </div>           
+                <div className="input-control">
+                    <p className='p'>Don't have an account ? <span onClick={handleClick}>Sign Up</span> </p>
                 </div>
             </form>
         </div>

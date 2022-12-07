@@ -1,6 +1,6 @@
 import '../styles/SignUp.css'
 
-export default function SignUp() {
+export default function SignUp({handleClick}) {
     return (
         <div>
             <form id="form">
@@ -22,10 +22,10 @@ export default function SignUp() {
                     <input type="password2" id="password2" name="password2" />
                 </div>
                 <div className="input-control">
-                    <button type="submit">Sign Up</button>
+                    <button type="submit">Register</button>
                 </div>
                 <div className="input-control">
-                    <p className='p'>Already have an account ? </p>
+                    <p className='p'>Already have an account ? <span onClick={handleClick}>Sign In</span></p>
                 </div>
             </form>
         </div>
