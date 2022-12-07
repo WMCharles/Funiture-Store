@@ -28,6 +28,7 @@ span {
 .input-control {
     display: flex;
     flex-direction: column;
+    margin-top: 1em ;
 }
 
 .input-control input {
