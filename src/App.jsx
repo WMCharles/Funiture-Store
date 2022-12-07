@@ -8,6 +8,7 @@ import Contact from './components/Contact';
 import { useState } from 'react';
 import './App.css';
 import AddProduct from './components/AddProducts';
+import Auth from './components/Auth';
 
 function App() {
 
@@ -49,6 +50,7 @@ function App() {
         <Route path='contact' element={<Contact />} />
         <Route path='addproduct' element={<AddProduct />} />
         <Route path='products/edit/:id' element={<AddProduct />} />
+        <Route path='auth' element={<Auth />} />
       </Routes>
     </Router>
   );
