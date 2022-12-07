@@ -10,8 +10,9 @@ export default function Product({ product }) {
           <img src={product.image_url} alt='' />
         </div>
         <div className='details'>
-          <h2>{product.title}</h2>
-          <h2>Kshs. {product.price}</h2>
+          <h3>{product.title}</h3>
+          <p>{product.description.substring(0,53)}...</p>
+          <h4>Kshs. {product.price}</h4>
         </div>
       </div>
     </div>
