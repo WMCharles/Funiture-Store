@@ -42,20 +42,20 @@ export default function SignUp({ handleClick }) {
         <div>
             <form id="form" onSubmit={handleSubmit}>
                 <h1>Registration</h1>
-                <div class="input-control">
-                    <label for="username">Username</label>
+                <div className="input-control">
+                    <label htmlFor="username">Username</label>
                     <input type="text" id="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
                 </div>
-                <div class="input-control">
-                    <label for="email">Email</label>
+                <div className="input-control">
+                    <label htmlFor="email">Email</label>
                     <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
-                <div class="input-control">
-                    <label for="password">Password</label>
+                <div className="input-control">
+                    <label htmlFor="password">Password</label>
                     <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
-                <div class="input-control">
-                    <label for="password">Password</label>
+                <div className="input-control">
+                    <label htmlFor="password">Password</label>
                     <input type="password" id="password2" name="password_confirmation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
                 </div>
                 <div className='input-group'>
@@ -71,7 +71,7 @@ export default function SignUp({ handleClick }) {
                     <button type="submit">Register</button>
                 </div>
                 <div className="input-control">
-                    <p className='p'>Already have an account ? <span onClick={handleClick}>Sign In</span></p>
+                    <p className='p'>Already have an account? <span onClick={handleClick}>Login</span></p>
                 </div>
             </form>
         </div>
