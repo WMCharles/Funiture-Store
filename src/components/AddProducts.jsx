@@ -41,8 +41,8 @@ export default function AddProduct({ addToProducts }) {
 
     function handleFormSubmit(e) {
         e.preventDefault()
-        fetch(`/products/${id ? '/' + id : ''}`, {
-            method: id ? "PUT" : "POST",
+        fetch(`/products${id ? '/' + id : ''}`, {
+            method: id ? "PATCH" : "POST",
             headers: {
                 "content-type": "application/json"
             },
