@@ -1,7 +1,7 @@
 .contact-us {
     width: 70%;
-    height: (100vh - 80px -6em);
-    margin: 6em auto 0 auto;
+    /* height: (100vh - 80px -6em); */
+    margin: 8em auto 0 auto;
     display: flex;
 }
 
@@ -18,7 +18,7 @@
     width: 50%;
 }
 
-.input-control {
+.input-contact {
     display: flex;
     flex-direction: column;
     margin-top: 1.2em;
@@ -28,7 +28,7 @@
     margin-top: 2em;
 }
 
-.input-control button {
+.input-contact button {
     padding: 12px;
     border: none;
     font-size: .9em;
@@ -38,23 +38,23 @@
     border-radius: 5px;
 }
 
-.input-control input {
+.input-contact input {
     padding: 12px 0;
     border: none;
     border-bottom: 1px solid black;
 }
 
-.input-control input:focus {
+.input-contact input:focus {
     outline: 0;
 }
 
-.input-control textarea {
+.input-contact textarea {
     padding: 12px 0;
     border: none;
     border-bottom: 1px solid black;
 }
 
-.input-control textarea:focus {
+.input-contact textarea:focus {
     outline: 0;
 }
 

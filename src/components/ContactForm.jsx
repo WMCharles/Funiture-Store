@@ -25,19 +25,19 @@ export default function ContactForm() {
     }
     return (
         <form onSubmit={handleSubmit}>
-            <div className='input-control'>
+            <div className='input-contact'>
                 <label>Name</label>
                 <input type="text" name="name" onChange={handleInputChange} required />
             </div>
-            <div className='input-control'>
+            <div className='input-contact'>
                 <label>Email</label>
                 <input type="email" name='email' onChange={handleInputChange} required />
             </div>
-            <div className='input-control'>
+            <div className='input-contact'>
                 <label>Message</label>
                 <textarea cols="" rows="5" name='message' onChange={handleInputChange} required></textarea>
             </div>
-            <div className='input-control'>
+            <div className='input-contact'>
                 <button type='submit'>Submit</button>
             </div>
         </form>
