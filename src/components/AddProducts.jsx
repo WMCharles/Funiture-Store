@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "../styles/AddProduct.css"
 import { useParams, useNavigate } from 'react-router-dom'
 
-export default function AddProduct({ addToProducts }) {
+export default function AddProduct() {
 
     // Params Constant
     const params = useParams()
@@ -10,13 +10,26 @@ export default function AddProduct({ addToProducts }) {
     const [id, setId] = useState(params.id)
     // navigate
     const navigate = useNavigate()
+    const [errors, setErrors] = useState([])
+
+
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+        fetch('/categories')
+            .then((response) => response.json())
+            .then((data) => {
+                setCategories(data)
+            })
+    }, [])
 
     // Handling change in form
     const [formData, setFormData] = useState({
         title: "",
         description: "",
         price: 0,
-        quantity:1,
+        category_id: 1,
+        quantity: 1,
         image_url: ""
     })
 
@@ -48,11 +61,15 @@ export default function AddProduct({ addToProducts }) {
             },
             body: JSON.stringify(formData)
         })
-            .then((res) => res.json())
-            .then((item) => addToProducts(item))
-        setTimeout(() => {
-            navigate(`/products`)
-        }, 2000);
+            .then((res) => {
+                if (res.ok) {
+                    res.json().then((product) => console.log(product));
+                    navigate(`/products`)
+                } else {
+                    res.json().then((errorData) => setErrors(errorData.errors));
+                }
+            })
+
     }
 
     return (
@@ -75,6 +92,23 @@ export default function AddProduct({ addToProducts }) {
                     <div className='input-control'>
                         <label>Image URL</label>
                         <input type="text" name='image_url' required onChange={handleInputChange} value={formData.image_url} />
+                    </div>
+                    <div className='select-control'>
+                        <label htmlFor="category">Select Category</label>
+                        <select className='select-options' name='category_id' onChange={handleInputChange}>
+                            {categories.map((category) =>
+                                <option key={category.id} value={category.id}>{category.name}</option>
+                            )}
+                        </select>
+                    </div>
+                    <div className='input-control'>
+                        {errors.length > 0 && (
+                            <div style={{ color: "red" }}>
+                                {errors.map((error) => (
+                                    <p key={error}>{error}</p>
+                                ))}
+                            </div>
+                        )}
                     </div>
                     <div className='input-control'>
                         <button type='submit'>{id ? "Update Product" : "Add Product"}</button>
