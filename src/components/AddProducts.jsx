@@ -76,20 +76,20 @@ export default function AddProduct() {
         <div className='Product'>
             <h1>{id ? "Edit Product" : "Add Product"}</h1>
             <div className='AddProduct'>
-                <form onSubmit={handleFormSubmit}>
-                    <div className='input-control'>
+                <form onSubmit={handleFormSubmit} className='addp'>
+                    <div className='input-group'>
                         <label>Title</label>
                         <input type="text" required name='title' onChange={handleInputChange} value={formData.title} />
                     </div>
-                    <div className='input-control'>
+                    <div className='input-group'>
                         <label>Price</label>
                         <input type="number" name='price' required onChange={handleInputChange} value={formData.price} />
                     </div>
-                    <div className='input-control'>
+                    <div className='input-group'>
                         <label>Description</label>
                         <textarea cols="" rows="5" name='description' required onChange={handleInputChange} value={formData.description}></textarea>
                     </div>
-                    <div className='input-control'>
+                    <div className='input-group'>
                         <label>Image URL</label>
                         <input type="text" name='image_url' required onChange={handleInputChange} value={formData.image_url} />
                     </div>
@@ -101,7 +101,7 @@ export default function AddProduct() {
                             )}
                         </select>
                     </div>
-                    <div className='input-control'>
+                    <div className='input-group'>
                         {errors.length > 0 && (
                             <div style={{ color: "red" }}>
                                 {errors.map((error) => (
@@ -110,7 +110,7 @@ export default function AddProduct() {
                             </div>
                         )}
                     </div>
-                    <div className='input-control'>
+                    <div className='input-group'>
                         <button type='submit'>{id ? "Update Product" : "Add Product"}</button>
                     </div>
                 </form>

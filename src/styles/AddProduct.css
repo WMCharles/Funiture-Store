@@ -8,19 +8,19 @@
     text-align: center;
 }
 
-form {
+.addp {
     width: 80%;
     margin: 0 auto;
     font-size: 1.2em;
 }
 
-.input-control {
+.input-group {
     display: flex;
     flex-direction: column;
     margin-top: 1.2em ;
 }
 
-.input-control button {
+.input-group button {
     padding: 12px;
     border: none;
     font-size: .9em;
@@ -30,23 +30,23 @@ form {
     border-radius: 5px;
 }
 
-.input-control input {
+.input-group input {
     padding: 12px 0;
     border: none;
     border-bottom: 1px solid black;
 }
 
-.input-control input:focus {
+.input-group input:focus {
     outline: 0;
 }
 
-.input-control textarea {
+.input-group textarea {
     padding: 12px 0;
     border: none;
     border-bottom: 1px solid black;
 }
 
-.input-control textarea:focus {
+.input-group textarea:focus {
     outline: 0;
 }
 
