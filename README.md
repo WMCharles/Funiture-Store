@@ -2,6 +2,16 @@
 
 This is an e-commerce site built for a local furniture shop to sell and market their products.
 
+### For testing purposes
+```
+admin 
+- username: admin
+- password: 1234567xx
+
+test user 
+- username: testuser
+- password: 1234567xx
+```
 ## Table of content
 
 - [Project Features](#project-features)
@@ -54,6 +64,9 @@ npm start
 
 ```
 # Backend API
+
+[Funiture Store API](https://github.com/https://funiture-store-api-production.up.railway.app)
+[GitHub Repo](https://github.com/WMCharles/Funiture-Store-API)
 
 Ruby on Rails, Active Records, and Postgres- Used for Backend API development
 
