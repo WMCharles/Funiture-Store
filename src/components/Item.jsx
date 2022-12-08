@@ -24,7 +24,7 @@ export default function Item({ addToCart }) {
     }
     useEffect(() => {
         fetchProduct()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     function handleDelete(product) {
@@ -33,6 +33,7 @@ export default function Item({ addToCart }) {
         })
             .then((res) => res.json())
     }
+
 
     const ShowProduct = () => {
         return (
@@ -55,7 +56,24 @@ export default function Item({ addToCart }) {
                 </div>
                 <div className='update-delete'>
                     <button className='button button1'><a href={`edit/${product.id}`}>Edit Product</a></button>
-                    <button className='button button2' onClick={() => {handleDelete(product); navigate(`/products`)}}>Delete Product</button>
+                    <button className='button button2' onClick={() => { handleDelete(product); navigate(`/products`) }}>Delete Product</button>
+                </div>
+                <div className="reviews">
+                    <hr style={{ marginBottom: ".5em" }} />
+                    <h2>Reviews</h2>
+                    <div className='review-items'>
+                        {product.reviews.map((review) =>
+                            <div key={review.id} className='comment'>
+                                <p className='username'>{review.user.username}: </p> <p> {review.comment}</p>
+                            </div>
+                        )}
+                    </div>
+                    <div className='input-review'>
+                        <form>
+                            <textarea id="subject" name="subject" placeholder="Leave your review..."></textarea>
+                            <input type="submit" value="Submit" />
+                        </form>
+                    </div>
                 </div>
             </div>
         )
