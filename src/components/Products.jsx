@@ -1,48 +1,60 @@
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import Loading from "./Loading"
-import Product from "./Product"
+import Filter from "./Filter"
+import ShowProducts from "./ShowProducts"
 import "../styles/Products.css"
 
-export default function Products() {
+export default function Products({ user }) {
 
+    // states 
+    const [products, setProducts] = useState([]);
+    const [filter, setFilter] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    // navigation
     const navigate = useNavigate()
-    const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
-
-    const fetchProducts = async () => {
-        fetch('/products')
-            .then((resp) => resp.json())
-            .then((data) => {
-                setLoading(false)
-                setProducts(data)
-            })
-            .catch((err) => console.log(err))
-    }
 
     useEffect(() => {
-        fetchProducts()
-    }, [])
+        fetch("/products")
+            .then((res) => res.json())
+            .then((data) => {
+                setProducts(data);
+                setFilter(data);
+                setIsLoading(false);
+            });
+    }, [isLoading]);
 
-    const ShowProducts = () => {
-        return (
-            <div>
-                <div className='headers'>
-                    <h1>FUNITURES</h1>
-                    <h3 onClick={() => { navigate('/addproduct') }}>ADD FUNITURE</h3>
-                </div>
-                <div className='products-wrapper'>
-                    {products.map((product, index) =>
-                        <Product product={product} key={index} />
-                    )}
-                </div>
-            </div>
-        )
+    // filter products based on categories
+    const filterProducts = (category) => {
+        const updatedList = products.filter(
+            (product) => product.category.name === category
+        );
+        setFilter(updatedList);
+    };
+
+    // search state
+    const [query, setQuery] = useState("");
+
+    // search fields
+    const keys = ["title", "description"];
+
+    // search function
+    function search(data) {
+        return data.filter((data) =>
+            keys.some((key) => data[key].toLowerCase().includes(query.toLowerCase()))
+        );
     }
-    
+
     return (
         <div className='products'>
-            {loading ? <Loading /> : <ShowProducts/>}
+            <Filter input={setQuery} setFilter={setFilter} filterProducts={filterProducts} products={products} />
+            <div className='headers'>
+                {user && user.role === 'admin' &&
+                    <button onClick={() => { navigate('/addproduct') }} className='addbtn'>Add New Product</button>
+                }
+            </div>
+            {isLoading ? <Loading /> : <ShowProducts search={search} filter={filter} />}
         </div>
     )
 }
