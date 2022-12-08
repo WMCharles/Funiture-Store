@@ -23,7 +23,16 @@ This is an e-commerce site built for a local furniture shop to sell and market t
 * Signup Page - For users to register
 ### Home Page
 
-![Home Page](https://github.com/WMCharles/Phase-2-Independent-Project/blob/main/funiture.png)
+![Home Page](https://github.com/WMCharles/Funiture-Store-/blob/main/landingpage.png)
+
+### Products Page 
+
+![Home Page](https://github.com/WMCharles/Funiture-Store-/blob/main/products.png)
+
+### Product Details 
+
+![Home Page](https://github.com/WMCharles/Funiture-Store-/blob/main/product.png)
+
 ### Demo
 
 ![](https://github.com/WMCharles/Phase-2-Independent-Project/blob/main/InShot_20221007_164317342.gif)
