@@ -5,7 +5,7 @@ import Home from './components/Home';
 import Item from './components/Item';
 import Cart from './components/Cart';
 import Contact from './components/Contact';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import AddProduct from './components/AddProducts';
 import Auth from './components/Auth';
@@ -13,6 +13,7 @@ import Auth from './components/Auth';
 function App() {
 
   const [cart, setCart] = useState([])
+  const [user, setUser] = useState([])
 
   // Add Item to Cart
   function addToCart(item) {
@@ -39,13 +40,20 @@ function App() {
     setCart([...arr]);
   };
 
+  useEffect(() => {
+    fetch('/me')
+    .then((response) => response.json())
+    .then((data) => setUser(data))
+  },[])
+
+  console.log(user)
   return (
     <Router>
       <NavBar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='products' element={<Products />} />
-        <Route path='products/:id' element={<Item addToCart={addToCart} />} />
+        <Route path='products/:id' element={<Item addToCart={addToCart} user={user}/>} />
         <Route path='cart' element={<Cart cart={cart} removeItem={removeFromCart} handleChange={handleChange} />} />
         <Route path='contact' element={<Contact />} />
         <Route path='addproduct' element={<AddProduct />} />

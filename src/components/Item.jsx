@@ -1,14 +1,16 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import Loading from './Loading'
+import Review from './Review'
 import "../styles/Item.css"
 
-export default function Item({ addToCart }) {
+export default function Item({ addToCart, user }) {
 
     const { id } = useParams()
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(true)
     const navigate = useNavigate()
+
 
     function handleAddToCart(item) {
         addToCart(item)
@@ -68,12 +70,7 @@ export default function Item({ addToCart }) {
                             </div>
                         )}
                     </div>
-                    <div className='input-review'>
-                        <form>
-                            <textarea id="subject" name="subject" placeholder="Leave your review..."></textarea>
-                            <input type="submit" value="Submit" className='btnxx'/>
-                        </form>
-                    </div>
+                    <Review user={user} product={product}/>
                 </div>
             </div>
         )
