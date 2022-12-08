@@ -111,7 +111,7 @@
 .input-review form {
     width: 60%;
 }
-input[type=text],
+
 textarea {
     width: 100%;
     padding: 12px;
@@ -128,7 +128,7 @@ textarea:focus {
     outline: none;
 }
 
-input[type=submit] {
+.btnxx {
     background-color: black;
     color: white;
     padding: 12px 2px;

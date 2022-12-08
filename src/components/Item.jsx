@@ -71,7 +71,7 @@ export default function Item({ addToCart }) {
                     <div className='input-review'>
                         <form>
                             <textarea id="subject" name="subject" placeholder="Leave your review..."></textarea>
-                            <input type="submit" value="Submit" />
+                            <input type="submit" value="Submit" className='btnxx'/>
                         </form>
                     </div>
                 </div>
