@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function Review({ product, user }) {
+export default function Review({ product, user, setReload }) {
 
     // formData
     const [formData, setFormData] = useState({
@@ -20,6 +20,7 @@ export default function Review({ product, user }) {
     // handleFormSubmit
     function handleFormSubmit(e) {
         e.preventDefault()
+        setReload(true);
         fetch(`/reviews`, {
             method: "POST",
             headers: {

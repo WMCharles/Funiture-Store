@@ -9,6 +9,8 @@ export default function Item({ addToCart, user }) {
     const { id } = useParams()
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(true)
+    const [reload, setReload] = useState(false)
+
     const navigate = useNavigate()
 
 
@@ -26,8 +28,8 @@ export default function Item({ addToCart, user }) {
     }
     useEffect(() => {
         fetchProduct()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [reload])
 
     function handleDelete(product) {
         fetch(`/products/${product.id}`, {
@@ -70,7 +72,7 @@ export default function Item({ addToCart, user }) {
                             </div>
                         )}
                     </div>
-                    <Review user={user} product={product}/>
+                    <Review user={user} product={product} setReload={setReload}/>
                 </div>
             </div>
         )
