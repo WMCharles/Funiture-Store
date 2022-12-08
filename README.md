@@ -5,7 +5,6 @@ This is an e-commerce site built for a local furniture shop to sell and market t
 ## Table of content
 
 - [Project Features](#project-features)
-- [Demo Page](#home-page)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation--set-up)
 - [Backend API](#backend-api)
@@ -24,6 +23,36 @@ This is an e-commerce site built for a local furniture shop to sell and market t
 - Login Page - For users to login
 - Signup Page - For users to register
 
+## Technologies Used
+
+* React Library - it was used to design, structure and add content to the web pages
+* CSS - it was used to styling our the pages
+* Ruby on Rails - Backend API
+* Vercel - Deploying React Frontend
+* Railway - Deploying Backend API
+
+## Installation & Set up
+
+Clone the repository
+```
+
+git clone git@github.com:WMCharles/Funiture-Store-.git
+
+```
+
+Install dependecies
+
+```
+
+npm install
+
+```
+Run
+```
+
+npm start
+
+```
 # Backend API
 
 Ruby on Rails, Active Records, and Postgres- Used for Backend API development
@@ -178,38 +207,6 @@ POST /logout used to log out
 
 GET /me used to keep logged in users in session
 
-
-
-## Technologies Used
-
-* React Library - it was used to design, structure and add content to the web pages
-* CSS - it was used to styling our the pages
-* Ruby on Rails - Backend API
-* Vercel - Deploying React Frontend
-* Railway - Deploying Backend API
-
-## Installation & Set up
-
-Clone the repository
-```
-
-git clone git@github.com:WMCharles/Funiture-Store-.git
-
-```
-
-Install dependecies
-
-```
-
-npm install
-
-```
-Run
-```
-
-npm start
-
-```
 ## Contributions
 
 1. Fork this repository.
