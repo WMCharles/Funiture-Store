@@ -28,7 +28,7 @@ export default function Item({ addToCart, user }) {
     }
     useEffect(() => {
         fetchProduct()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [reload])
 
     function handleDelete(product) {
@@ -58,21 +58,37 @@ export default function Item({ addToCart, user }) {
                         </div>
                     </div>
                 </div>
-                <div className='update-delete'>
-                    <button className='button button1'><a href={`edit/${product.id}`}>Edit Product</a></button>
-                    <button className='button button2' onClick={() => { handleDelete(product); navigate(`/products`) }}>Delete Product</button>
-                </div>
-                <div className="reviews">
-                    <hr style={{ marginBottom: ".5em" }} />
-                    <h2>Reviews</h2>
-                    <div className='review-items'>
-                        {product.reviews.map((review) =>
-                            <div key={review.id} className='comment'>
-                                <p className='username'>{review.user.username}: </p> <p> {review.comment}</p>
-                            </div>
-                        )}
+                {user !== null && user.role === 'admin' &&
+                    <div className='update-delete'>
+                        <button className='button button1'><a href={`edit/${product.id}`}>Edit Product</a></button>
+                        <button className='button button2' onClick={() => { handleDelete(product); navigate(`/products`) }}>Delete Product</button>
                     </div>
-                    <Review user={user} product={product} setReload={setReload}/>
+                }
+                <div className="reviews">
+                    <h2>Reviews</h2>
+                    <hr style={{ marginBottom: ".5em" }} />
+                    {product.reviews.length === 0 &&
+                        <div className="review-items" style={{textAlign:"center"}}>
+                            <h2 >There are no reviews for this product.</h2>
+                            <p>Be the first on to review.</p>
+                        </div>
+                    }
+                    {product.reviews.length > 0 &&
+                        <div className='review-items'>
+                            {product.reviews.map((review) =>
+                                <div key={review.id} className='comment'>
+                                    <p className='username'>{review.user.username}: </p> <p> {review.comment}</p>
+                                </div>
+                            )}
+                        </div>
+                    }
+                    {user === null && 
+                        <p style={{color:"blue"}}>Please login to review product.</p>
+                    }
+
+                    {user !== null &&
+                        <Review user={user} product={product} setReload={setReload} />
+                    }
                 </div>
             </div>
         )
