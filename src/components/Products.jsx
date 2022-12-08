@@ -16,7 +16,7 @@ export default function Products({ user }) {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch("/products")
+        fetch("https://funiture-store-api-production.up.railway.app/products")
             .then((res) => res.json())
             .then((data) => {
                 setProducts(data);

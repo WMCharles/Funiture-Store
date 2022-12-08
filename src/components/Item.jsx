@@ -19,7 +19,7 @@ export default function Item({ addToCart, user }) {
     }
 
     const fetchProduct = async () => {
-        fetch(`/products/${id}`)
+        fetch(`https://funiture-store-api-production.up.railway.app/products/${id}`)
             .then((res) => res.json())
             .then((item) => {
                 setLoading(false)
@@ -32,7 +32,7 @@ export default function Item({ addToCart, user }) {
     }, [reload])
 
     function handleDelete(product) {
-        fetch(`/products/${product.id}`, {
+        fetch(`https://funiture-store-api-production.up.railway.app/products/${product.id}`, {
             method: "DELETE"
         })
             .then((res) => res.json())

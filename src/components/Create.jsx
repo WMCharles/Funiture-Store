@@ -43,7 +43,7 @@ export default function Create() {
     // fetching data while editing
     useEffect(() => {
         if (id) {
-            fetch(`/products/${id}`)
+            fetch(`https://funiture-store-api-production.up.railway.app/products/${id}`)
                 .then(resp => resp.json())
                 .then((item) => {
                     setFormData(item);
@@ -53,7 +53,7 @@ export default function Create() {
 
     function handleFormSubmit(e) {
         e.preventDefault()
-        fetch(`/products${id ? '/' + id : ''}`, {
+        fetch(`https://funiture-store-api-production.up.railway.app/products${id ? '/' + id : ''}`, {
             method: id ? "PATCH" : "POST",
             headers: {
                 "content-type": "application/json"

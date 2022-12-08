@@ -21,7 +21,7 @@ export default function Review({ product, user, setReload }) {
     function handleFormSubmit(e) {
         e.preventDefault()
         setReload(true);
-        fetch(`/reviews`, {
+        fetch(`https://funiture-store-api-production.up.railway.app/reviews`, {
             method: "POST",
             headers: {
                 "content-type": "application/json"

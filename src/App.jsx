@@ -16,7 +16,7 @@ function App() {
 
   // login user automatically
   useEffect(() => {
-    fetch("/me").then((r) => {
+    fetch("https://funiture-store-api-production.up.railway.app/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }

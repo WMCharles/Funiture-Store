@@ -17,7 +17,7 @@ export default function SignUp({ handleClick, onLogin }) {
         e.preventDefault();
         setErrors([]);
         setIsLoading(true);
-        fetch("/signup", {
+        fetch("https://funiture-store-api-production.up.railway.app/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
