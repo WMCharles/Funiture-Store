@@ -1,4 +1,4 @@
-import { Link, Navigate, Outlet, useNavigate } from "react-router-dom"
+import { Link, Navigate, Outlet } from "react-router-dom"
 
 export default function NavBar({ user, setUser }) {
 
@@ -7,7 +7,6 @@ export default function NavBar({ user, setUser }) {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
         setUser(null);
-        Navigate(`/products`)
       }
     });
   }
