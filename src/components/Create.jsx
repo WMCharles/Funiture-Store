@@ -15,7 +15,7 @@ export default function Create() {
 
     // fetching categories
     useEffect(() => {
-        fetch('/categories')
+        fetch('https://funiture-store-api-production.up.railway.app/categories')
             .then((response) => response.json())
             .then((data) => {
                 setCategories(data)
