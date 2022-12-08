@@ -91,8 +91,51 @@
     margin-top: 1em;
 }
 
-.reviews h1 {
+.reviews h2 {
     margin-bottom: .5em;
+}
+
+.comment p {
+    display: inline-block;
+    font-size: 1.2em;
+}
+
+.username {
+    font-weight: 600;
+}
+
+.input-review {
+    margin-top: 1em;
+}
+
+.input-review form {
+    width: 60%;
+}
+input[type=text],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    height: 150px;
+    resize: vertical;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+input[type=submit] {
+    background-color: black;
+    color: white;
+    padding: 12px 2px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 20%;
 }
 
 /* Media Queries */
@@ -111,6 +154,7 @@
         margin: 1em 0;
         line-height: 2.5em;
     }
+
     .button {
         margin: 4px 3px 4px 0;
     }
