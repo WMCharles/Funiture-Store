@@ -6,7 +6,7 @@ import Item from './components/Item';
 import Cart from './components/Cart';
 import { useEffect, useState } from 'react';
 import './App.css';
-import AddProduct from './components/AddProducts';
+import Create from './components/Create';
 import Auth from './components/Auth';
 
 function App() {
@@ -56,11 +56,11 @@ function App() {
       <NavBar user={user} setUser={setUser} />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='products' element={<Products />} />
+        <Route path='products' element={<Products user={user}/>} />
         <Route path='products/:id' element={<Item addToCart={addToCart} user={user} />} />
         <Route path='cart' element={<Cart cart={cart} removeItem={removeFromCart} handleChange={handleChange} />} />
-        <Route path='addproduct' element={<AddProduct />} />
-        <Route path='products/edit/:id' element={<AddProduct />} />
+        <Route path='addproduct' element={<Create />} />
+        <Route path='products/edit/:id' element={<Create />} />
         <Route path='auth' element={<Auth onLogin={setUser} />} />
       </Routes>
     </Router>
