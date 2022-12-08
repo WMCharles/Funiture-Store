@@ -27,7 +27,7 @@ This is an e-commerce site built for a local furniture shop to sell and market t
 
 ### Demo
 
-![](https://github.com/WMCharles/Phase-2-Independent-Project/blob/main/InShot_20221007_164317342.gif)
+![](https://github.com/WMCharles/Funiture-Store-/blob/main/demo.mp4)
 
 
 ## Technologies Used
