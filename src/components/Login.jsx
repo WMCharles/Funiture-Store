@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from 'react-router-dom'
 
-export default function Login({ handleClick }) {
+export default function Login({ handleClick, onLogin }) {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -22,7 +22,7 @@ export default function Login({ handleClick }) {
         }).then((r) => {
             setIsLoading(false);
             if (r.ok) {
-                r.json().then((user) => console.log(user));
+                r.json().then((user) => onLogin(user));
                 navigate(`/products`)
             } else {
                 r.json().then((err) => setErrors(err.errors));

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/SignUp.css'
 
-export default function SignUp({ handleClick }) {
+export default function SignUp({ handleClick, onLogin }) {
 
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
@@ -27,11 +27,12 @@ export default function SignUp({ handleClick }) {
                 email,
                 password,
                 password_confirmation: passwordConfirmation,
+                role: "visitor"
             }),
         }).then((r) => {
             setIsLoading(false);
             if (r.ok) {
-                r.json().then((user) => console.log(user));
+                r.json().then((user) => onLogin(user));
                 navigate(`/products`)
             } else {
                 r.json().then((err) => setErrors(err.errors));

@@ -3,7 +3,7 @@ import '../styles/SignUp.css'
 import Login from './Login'
 import SignUp from './SignUp'
 
-export default function Auth() {
+export default function Auth({onLogin}) {
     
     const [login, setLogin] = useState(true)
     
@@ -14,7 +14,7 @@ export default function Auth() {
 
     return (
         <div>
-            {login ? <Login handleClick={handleClick}/> : <SignUp handleClick={handleClick}/>}
+            {login ? <Login handleClick={handleClick} onLogin={onLogin}/> : <SignUp handleClick={handleClick} onLogin={onLogin}/>}
         </div>
     )
 }

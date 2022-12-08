@@ -4,7 +4,6 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Item from './components/Item';
 import Cart from './components/Cart';
-import Contact from './components/Contact';
 import { useEffect, useState } from 'react';
 import './App.css';
 import AddProduct from './components/AddProducts';
@@ -12,17 +11,29 @@ import Auth from './components/Auth';
 
 function App() {
 
-  const [cart, setCart] = useState([])
-  const [user, setUser] = useState([])
+  // current user
+  const [user, setUser] = useState(null)
 
-  // Add Item to Cart
+  // login user automatically
+  useEffect(() => {
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
+  // cart state
+  const [cart, setCart] = useState([])
+
+  // add Item to Cart
   function addToCart(item) {
     const filterCart = cart.filter((product) => product.id !== item.id)
     const newCart = [...filterCart, item]
     setCart(newCart)
   }
 
-  // Remove Item From Cart
+  // remove Item From Cart
   function removeFromCart(item) {
     const newCart = cart.filter((product) => product.id !== item.id)
     setCart(newCart)
@@ -40,25 +51,17 @@ function App() {
     setCart([...arr]);
   };
 
-  useEffect(() => {
-    fetch('/me')
-    .then((response) => response.json())
-    .then((data) => setUser(data))
-  },[])
-
-  console.log(user)
   return (
     <Router>
-      <NavBar />
+      <NavBar user={user} setUser={setUser} />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='products' element={<Products />} />
-        <Route path='products/:id' element={<Item addToCart={addToCart} user={user}/>} />
+        <Route path='products/:id' element={<Item addToCart={addToCart} user={user} />} />
         <Route path='cart' element={<Cart cart={cart} removeItem={removeFromCart} handleChange={handleChange} />} />
-        <Route path='contact' element={<Contact />} />
         <Route path='addproduct' element={<AddProduct />} />
         <Route path='products/edit/:id' element={<AddProduct />} />
-        <Route path='auth' element={<Auth />} />
+        <Route path='auth' element={<Auth onLogin={setUser} />} />
       </Routes>
     </Router>
   );
