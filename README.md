@@ -25,8 +25,6 @@ This is an e-commerce site built for a local furniture shop to sell and market t
 
 ![Home Page](https://github.com/WMCharles/Funiture-Store-/blob/main/landingpage.png)
 
-![Home Page](https://github.com/WMCharles/Funiture-Store-/blob/main/product.png)
-
 ### Demo
 
 ![](https://github.com/WMCharles/Phase-2-Independent-Project/blob/main/InShot_20221007_164317342.gif)
