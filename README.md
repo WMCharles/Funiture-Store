@@ -2,7 +2,6 @@
 
 This is an e-commerce site built for a local furniture shop to sell and market their products.
 
-```
 ## Table of content
 
 - [Project Features](#project-features)
