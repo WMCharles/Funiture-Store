@@ -42,7 +42,7 @@ export default function SignUp({ handleClick, onLogin }) {
     return (
         <div>
             <form id="form" onSubmit={handleSubmit}>
-                <h1>Sign Up</h1>
+                <h1>Registration</h1>
                 <div className="input-control">
                     <label htmlFor="username">Username</label>
                     <input type="text" id="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
