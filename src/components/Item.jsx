@@ -19,7 +19,7 @@ export default function Item({ addToCart, user }) {
     }
 
     const fetchProduct = async () => {
-        fetch(`https://funiture-store-api-production.up.railway.app/products/${id}`)
+        fetch(`https://funiture-store-api.up.railway.app/products/${id}`)
             .then((res) => res.json())
             .then((item) => {
                 setLoading(false)

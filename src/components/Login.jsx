@@ -13,7 +13,7 @@ export default function Login({ handleClick, onLogin }) {
     function handleSubmit(e) {
         e.preventDefault();
         setIsLoading(true);
-        fetch("https://funiture-store-api-production.up.railway.app/login", {
+        fetch("https://funiture-store-api.up.railway.app/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

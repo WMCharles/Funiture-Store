@@ -15,7 +15,7 @@ export default function Create() {
 
     // fetching categories
     useEffect(() => {
-        fetch('https://funiture-store-api-production.up.railway.app/categories')
+        fetch('https://funiture-store-api.up.railway.app/categories')
             .then((response) => response.json())
             .then((data) => {
                 setCategories(data)
@@ -43,7 +43,7 @@ export default function Create() {
     // fetching data while editing
     useEffect(() => {
         if (id) {
-            fetch(`https://funiture-store-api-production.up.railway.app/products/${id}`)
+            fetch(`https://funiture-store-api.up.railway.app/products/${id}`)
                 .then(resp => resp.json())
                 .then((item) => {
                     setFormData(item);
@@ -53,7 +53,7 @@ export default function Create() {
 
     function handleFormSubmit(e) {
         e.preventDefault()
-        fetch(`https://funiture-store-api-production.up.railway.app/products${id ? '/' + id : ''}`, {
+        fetch(`https://funiture-store-api.up.railway.app/products${id ? '/' + id : ''}`, {
             method: id ? "PATCH" : "POST",
             headers: {
                 "content-type": "application/json"
